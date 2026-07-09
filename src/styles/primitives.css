@@ -1,0 +1,714 @@
+/*
+  Shared styling recipes.
+
+  Component CSS should describe layout and product-specific structure. Reuse these
+  primitives for controls, fields, panels, rows, pills, and empty states before
+  adding bespoke declarations in feature stylesheets.
+*/
+
+/* Controls --------------------------------------------------------------- */
+.ui-button,
+.ui-icon-button,
+.ui-input,
+.ui-select,
+.ui-textarea,
+.ui-action-group > button,
+.ui-toolbar > button,
+.ui-header-actions > button,
+.ui-input-action > button {
+  --control-height: var(--control-height-sm);
+  --control-radius: var(--radius-sm);
+  --control-padding-x: var(--space-3);
+  --control-border: var(--line);
+  --control-bg: var(--panel-3);
+  --control-color: var(--text);
+  --control-hover-border: var(--accent);
+  --control-hover-bg: var(--panel-2);
+  --control-hover-color: var(--text);
+  --control-shadow: inset 0 1px 0 color-mix(in srgb, var(--text) 10%, transparent);
+}
+
+.ui-button,
+.ui-icon-button,
+.ui-action-group > button,
+.ui-toolbar > button,
+.ui-header-actions > button,
+.ui-input-action > button {
+  min-height: var(--control-height);
+  box-sizing: border-box;
+  border: 1px solid var(--control-border);
+  border-radius: var(--control-radius);
+  background: var(--control-bg);
+  color: var(--control-color);
+  box-shadow: var(--control-shadow);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.ui-button,
+.ui-action-group > button,
+.ui-header-actions > button,
+.ui-input-action > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0 var(--control-padding-x);
+}
+
+.ui-icon-button,
+.ui-toolbar > button {
+  display: inline-grid;
+  width: var(--control-height);
+  min-width: var(--control-height);
+  height: var(--control-height);
+  place-items: center;
+  padding: 0;
+}
+
+.ui-button:hover:not(:disabled),
+.ui-icon-button:hover:not(:disabled),
+.ui-action-group > button:hover:not(:disabled),
+.ui-toolbar > button:hover:not(:disabled),
+.ui-header-actions > button:hover:not(:disabled),
+.ui-input-action > button:hover:not(:disabled) {
+  border-color: var(--control-hover-border);
+  background: var(--control-hover-bg);
+  color: var(--control-hover-color);
+}
+
+.ui-button:focus-visible,
+.ui-icon-button:focus-visible,
+.ui-focus-ring:focus-visible,
+.ui-action-group > button:focus-visible,
+.ui-toolbar > button:focus-visible,
+.ui-header-actions > button:focus-visible,
+.ui-input-action > button:focus-visible {
+  outline: none;
+  outline-offset: 2px;
+  border-color: color-mix(in srgb, var(--accent) 38%, var(--line));
+  box-shadow: none;
+}
+
+.ui-button:disabled,
+.ui-icon-button:disabled,
+.ui-input:disabled,
+.ui-select:disabled,
+.ui-textarea:disabled,
+.ui-action-group > button:disabled,
+.ui-toolbar > button:disabled,
+.ui-header-actions > button:disabled,
+.ui-input-action > button:disabled {
+  opacity: var(--disabled-opacity);
+}
+
+.ui-button.primary,
+.ui-icon-button.primary,
+.ui-action-group > button.primary,
+.ui-toolbar > button.primary,
+.ui-header-actions > button.primary,
+.ui-input-action > button.primary {
+  --control-border: var(--accent);
+  --control-bg: color-mix(in srgb, var(--accent) 14%, var(--panel-3));
+  --control-color: var(--text);
+  --control-hover-border: var(--accent);
+  --control-hover-bg: color-mix(in srgb, var(--accent) 20%, var(--panel-3));
+  --control-hover-color: var(--text);
+  --control-shadow: inset 0 1px 0 color-mix(in srgb, var(--text) 14%, transparent);
+}
+
+.ui-button.danger,
+.ui-icon-button.danger,
+.ui-button.danger-action,
+.ui-icon-button.danger-action,
+.ui-action-group > button.danger,
+.ui-action-group > button.danger-action,
+.ui-toolbar > button.danger,
+.ui-toolbar > button.danger-action,
+.ui-header-actions > button.danger,
+.ui-header-actions > button.danger-action,
+.ui-input-action > button.danger,
+.ui-input-action > button.danger-action {
+  --control-border: var(--danger);
+  --control-bg: var(--danger-soft);
+  --control-color: var(--danger);
+  --control-hover-border: var(--danger);
+  --control-hover-bg: var(--danger-soft);
+  --control-hover-color: var(--text);
+}
+
+.ui-button.success,
+.ui-icon-button.success,
+.ui-button.stage-action:not(:disabled),
+.ui-icon-button.stage-action:not(:disabled),
+.ui-action-group > button.stage-action:not(:disabled),
+.ui-toolbar > button.stage-action:not(:disabled),
+.ui-header-actions > button.stage-action:not(:disabled) {
+  --control-border: var(--success);
+  --control-bg: var(--success-soft);
+  --control-color: var(--success);
+  --control-hover-border: var(--success);
+  --control-hover-bg: color-mix(in srgb, var(--success) 18%, var(--success-soft));
+}
+
+.ui-button.warning,
+.ui-icon-button.warning,
+.ui-button.unstage-action:not(:disabled),
+.ui-icon-button.unstage-action:not(:disabled),
+.ui-action-group > button.unstage-action:not(:disabled),
+.ui-toolbar > button.unstage-action:not(:disabled),
+.ui-header-actions > button.unstage-action:not(:disabled) {
+  --control-border: var(--warning);
+  --control-bg: var(--warning-soft);
+  --control-color: var(--warning);
+  --control-hover-border: var(--warning);
+  --control-hover-bg: var(--warning-soft);
+}
+
+.ui-button.stash-action:not(:disabled),
+.ui-icon-button.stash-action:not(:disabled),
+.ui-action-group > button.stash-action:not(:disabled),
+.ui-toolbar > button.stash-action:not(:disabled),
+.ui-header-actions > button.stash-action:not(:disabled) {
+  --control-border: var(--branch-color-3);
+  --control-bg: color-mix(in srgb, var(--branch-color-3) 14%, var(--panel-3));
+  --control-color: var(--branch-color-3);
+  --control-hover-border: var(--branch-color-3);
+  --control-hover-bg: color-mix(in srgb, var(--branch-color-3) 20%, var(--panel-3));
+}
+
+.ui-header-actions > button,
+.titlebar-actions.ui-header-actions > button {
+  --control-border: color-mix(in srgb, var(--branch-color-3) 72%, var(--line));
+  --control-bg: color-mix(in srgb, var(--branch-color-3) 12%, var(--panel-3));
+  --control-color: color-mix(in srgb, var(--text) 76%, var(--branch-color-3));
+  --control-hover-border: color-mix(in srgb, var(--branch-color-3) 82%, var(--line));
+  --control-hover-bg: color-mix(in srgb, var(--branch-color-3) 18%, var(--panel-3));
+}
+
+.ui-button.subtle,
+.ui-icon-button.subtle,
+.ui-action-group > button.subtle,
+.ui-header-actions > button.subtle {
+  --control-border: transparent;
+  --control-bg: transparent;
+  --control-color: var(--muted);
+  --control-hover-border: transparent;
+  --control-hover-bg: color-mix(in srgb, var(--accent) 8%, var(--panel-2));
+}
+
+.ui-compact-button {
+  --control-height: 20px;
+  --control-radius: var(--radius-xs);
+  --control-padding-x: 7px;
+  font-size: 11px;
+}
+
+/* Fields ----------------------------------------------------------------- */
+.ui-field,
+.settings-field,
+.modal-field {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  color: var(--faint);
+  font-size: 12px;
+}
+
+.ui-field > span,
+.settings-field > span,
+.modal-field > span,
+.ui-field-label {
+  color: var(--faint);
+  font-weight: 700;
+}
+
+.ui-input,
+.ui-select,
+.ui-textarea,
+.settings-field input,
+.settings-field select,
+.settings-field textarea,
+.modal-field input,
+.commit-box input,
+.commit-box textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+
+.ui-input,
+.ui-select,
+.settings-field input,
+.settings-field select,
+.modal-field input,
+.commit-box input {
+  min-height: var(--control-height-md);
+  padding: 0 var(--space-3);
+}
+
+.ui-textarea,
+.settings-field textarea,
+.commit-box textarea {
+  min-height: 76px;
+  padding: var(--space-2) var(--space-3);
+  resize: vertical;
+}
+
+.ui-input:focus-visible,
+.ui-select:focus-visible,
+.ui-textarea:focus-visible,
+.settings-field input:focus-visible,
+.settings-field select:focus-visible,
+.settings-field textarea:focus-visible,
+.modal-field input:focus-visible,
+.commit-box input:focus-visible,
+.commit-box textarea:focus-visible,
+.filter-field:focus-within,
+.command-search:focus-within {
+  outline: none;
+  outline-offset: 2px;
+  border-color: color-mix(in srgb, var(--accent) 52%, var(--line));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.ui-field-help,
+.field-help,
+.modal-field small {
+  color: var(--faint);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.ui-field-error,
+.modal-error { color: var(--danger) !important; }
+
+.ui-input-action,
+.settings-input-action {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+
+.ui-filter-field,
+.filter-field,
+.command-search {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  color: var(--faint);
+}
+
+.ui-filter-field input,
+.filter-field input,
+.command-search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+}
+
+
+/* Dropdowns and menus ---------------------------------------------------- */
+.ui-menu-trigger,
+.app-dropdown-trigger,
+.settings-theme-trigger,
+.clone-branch-trigger,
+.worktree-select-button {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  width: 100%;
+  min-height: var(--control-height-md);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  color: var(--text);
+  padding: 5px 9px;
+  text-align: left;
+}
+
+.ui-menu-trigger:hover,
+.app-dropdown-trigger:hover,
+.app-dropdown.open .app-dropdown-trigger,
+.settings-theme-trigger:hover,
+.clone-branch-trigger:hover,
+.clone-branch-trigger[aria-expanded='true'],
+.worktree-select-button:hover,
+.worktree-select-button[aria-expanded='true'] {
+  border-color: color-mix(in srgb, var(--accent) 24%, var(--line));
+  background: color-mix(in srgb, var(--accent) 8%, var(--panel-2));
+}
+
+.ui-menu-trigger:focus-visible,
+.app-dropdown-trigger:focus-visible,
+.settings-theme-trigger:focus-visible,
+.clone-branch-trigger:focus-visible,
+.worktree-select-button:focus-visible {
+  outline: none;
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+.ui-menu,
+.app-dropdown-menu,
+.settings-theme-menu,
+.clone-branch-menu,
+.worktree-menu,
+.context-menu {
+  z-index: var(--z-dropdown);
+  display: grid;
+  gap: 4px;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--panel);
+  padding: var(--space-1);
+  box-shadow: 0 12px 26px var(--shadow-medium);
+}
+
+.ui-menu-item,
+.app-dropdown-menu button,
+.settings-theme-menu button,
+.clone-branch-menu button,
+.worktree-option,
+.context-menu button {
+  display: grid;
+  align-items: center;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--muted);
+  text-align: left;
+}
+
+.ui-menu-item:hover:not(:disabled),
+.ui-menu-item.active:not(:disabled),
+.ui-menu-item.selected:not(:disabled),
+.app-dropdown-menu button:hover:not(:disabled),
+.app-dropdown-menu button.selected:not(:disabled),
+.settings-theme-menu button:hover:not(:disabled),
+.settings-theme-menu button.selected:not(:disabled),
+.clone-branch-menu button:hover:not(:disabled),
+.clone-branch-menu button.selected:not(:disabled),
+.worktree-option:hover:not(:disabled),
+.worktree-option.active:not(:disabled),
+.context-menu button:hover:not(:disabled),
+.context-menu button.active:not(:disabled) {
+  background: color-mix(in srgb, var(--accent) 8%, var(--panel-2));
+  color: var(--text);
+}
+
+.ui-menu-item.selected,
+.ui-menu-item.active,
+.app-dropdown-menu button.selected,
+.settings-theme-menu button.selected,
+.clone-branch-menu button.selected,
+.worktree-option.active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--text);
+  box-shadow: none;
+}
+
+.ui-menu-item:focus-visible,
+.app-dropdown-menu button:focus-visible,
+.settings-theme-menu button:focus-visible,
+.clone-branch-menu button:focus-visible,
+.worktree-option:focus-visible,
+.context-menu button:focus-visible {
+  outline: none;
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+.ui-menu-item.danger,
+.context-menu button.danger { color: var(--danger); }
+.ui-menu-item.danger:hover:not(:disabled),
+.ui-menu-item.danger.active:not(:disabled),
+.context-menu button.danger:hover:not(:disabled),
+.context-menu button.danger.active:not(:disabled) {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+/* Panels ----------------------------------------------------------------- */
+.ui-panel,
+.confirm-card,
+.compact-dialog {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+}
+
+.ui-panel-muted,
+.settings-row,
+.repo-choice {
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--panel-2) 72%, var(--bg));
+}
+
+.ui-panel-raised {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: color-mix(in srgb, var(--panel) 82%, var(--panel-2));
+}
+
+/* Rows and selection ------------------------------------------------------ */
+.ui-selectable,
+.ui-row,
+.settings-nav-item,
+.command-list button,
+.inspector-file-list button,
+.inspector-history-list button,
+.repo-choice,
+.sidebar-row,
+.commit-row,
+.repository-picker-row {
+  border: 1px solid transparent;
+  color: var(--muted);
+}
+
+.ui-selectable:hover,
+.ui-row:hover,
+.settings-nav-item:hover,
+.command-list button:hover:not(:disabled),
+.inspector-file-list button:hover,
+.inspector-history-list button:hover,
+.repo-choice:hover:not(:disabled),
+.sidebar-row:hover,
+.commit-row:hover,
+.repository-picker-row:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--accent) 8%, var(--panel-2));
+  color: var(--text);
+}
+
+.ui-selectable.selected,
+.ui-row.selected,
+.ui-row.active,
+.settings-nav-item.selected,
+.command-list button.active:not(:disabled),
+.inspector-file-list button.selected,
+.inspector-history-list button.selected,
+.repo-choice.selected,
+.sidebar-row.active,
+.commit-row.selected,
+.repository-picker-row.selected {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--text);
+  box-shadow: none;
+}
+
+/* Segmented controls and switches ---------------------------------------- */
+.ui-segmented,
+.settings-segmented {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 3px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+}
+
+.ui-segmented-option,
+.settings-segmented label,
+.settings-segmented button,
+.screen-toggle {
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ui-segmented-option:hover,
+.settings-segmented label:hover,
+.settings-segmented button:hover,
+.screen-toggle:hover {
+  background: color-mix(in srgb, var(--accent) 8%, var(--panel-2));
+  color: var(--text);
+}
+
+.ui-segmented-option.selected,
+.settings-segmented label.selected,
+.settings-segmented button.selected,
+.screen-toggle.active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--text);
+  box-shadow: none;
+}
+
+.ui-switch,
+.settings-switch { position: relative; flex: 0 0 auto; }
+.ui-switch input,
+.settings-switch input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+}
+.ui-switch span,
+.settings-switch span {
+  display: block;
+  width: 38px;
+  height: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: var(--panel-3);
+  box-shadow: inset 0 0 0 1px var(--shadow-soft);
+}
+.ui-switch span::after,
+.settings-switch span::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-pill);
+  background: var(--faint);
+}
+.ui-switch input:checked + span,
+.settings-switch input:checked + span {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.ui-switch input:checked + span::after,
+.settings-switch input:checked + span::after {
+  transform: translateX(16px);
+  background: var(--text);
+}
+.ui-switch input:focus-visible + span,
+.settings-switch input:focus-visible + span {
+  outline: none;
+  outline-offset: 2px;
+}
+
+/* Pills and badges -------------------------------------------------------- */
+.ui-pill,
+.status-pill,
+.settings-pill,
+.app-dropdown-badge,
+.settings-version-state {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--panel-2) 72%, var(--bg));
+  color: var(--muted);
+  padding: 2px 7px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.ui-status-pill,
+.file-tree .status-pill,
+.inspector-file-list .status-pill {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  border-radius: var(--radius-xs);
+  padding: 0;
+  font-weight: 800;
+}
+
+.ui-pill.success,
+.settings-version-state.success {
+  border-color: var(--success);
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.status-pill.added,
+.added .status-pill {
+  border-color: var(--success);
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.ui-pill.warning,
+.settings-version-state.warning {
+  border-color: var(--warning);
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.status-pill.modified,
+.modified .status-pill {
+  border-color: var(--warning);
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.ui-pill.danger,
+.settings-version-state.error {
+  border-color: var(--danger);
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.status-pill.deleted,
+.deleted .status-pill {
+  border-color: var(--danger);
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+/* Empty states ------------------------------------------------------------ */
+.ui-empty,
+.empty-state,
+.changes-empty-state,
+.command-empty,
+.commit-empty,
+.inspector-status {
+  display: grid;
+  place-items: center;
+  min-height: 100%;
+  color: var(--muted);
+  padding: var(--space-5);
+  text-align: center;
+  line-height: 1.45;
+}
+
+.ui-empty.compact,
+.changes-empty-state {
+  min-height: auto;
+  place-items: start;
+  text-align: left;
+}
+
+.ui-empty.error,
+.empty-state.error { color: var(--danger); }
+
+.ui-muted { color: var(--muted); }
+.ui-faint { color: var(--faint); }
+.ui-mono { font-family: var(--mono); }
+.ui-truncate {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,148 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal-backdrop);
+  display: grid;
+  place-items: center;
+  overflow: auto;
+  padding: 24px;
+  background: var(--overlay);
+}
+.modal-card { z-index: var(--z-modal); box-shadow: 0 26px 90px var(--shadow-strong); }
+.modal-card form { display: grid; gap: 12px; }
+.clone-modal {
+  display: block;
+  width: min(720px, calc(100vw - 48px));
+  min-width: 0;
+}
+.confirm-card {
+  display: grid;
+  gap: 18px;
+  width: min(460px, calc(100vw - 40px));
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: var(--panel);
+}
+.compact-dialog {
+  display: grid;
+  gap: 14px;
+  width: min(440px, calc(100vw - 40px));
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+}
+.compact-dialog .settings-field { margin: 0; }
+.compact-dialog .field-help {
+  margin: -2px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+.compact-dialog .field-help strong { color: var(--text); font-weight: 600; }
+.confirm-card h2,
+.confirm-card p { margin: 0; }
+.confirm-card h2,
+.confirm-card p,
+.confirm-card code { overflow-wrap: anywhere; }
+.confirm-card .muted { color: var(--muted); line-height: 1.45; }
+.confirm-file-list {
+  display: grid;
+  gap: 6px;
+  max-height: 160px;
+  overflow: auto;
+  margin: 2px 0 0;
+  padding: 8px 10px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  color: var(--muted);
+  list-style: none;
+}
+.confirm-file-list code { color: var(--text); font-size: 12px; }
+.modal-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.modal-header > div { display: grid; gap: 10px; }
+.modal-header.compact {
+  align-items: center;
+  gap: 12px;
+  min-height: 36px;
+  padding-bottom: 4px;
+}
+.modal-header.compact > div { gap: 2px; }
+.modal-header.compact h1 {
+  margin: 0;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.2;
+}
+.modal-header.compact p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+.repo-choice-list { display: grid; gap: 6px; }
+.repo-choice-list.compact {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.repo-choice {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-md);
+  background: var(--panel-2);
+  color: var(--muted);
+  padding: 7px 10px;
+  text-align: left;
+}
+.repo-choice:hover:not(:disabled) { color: var(--text); background: var(--panel-3); }
+.repo-choice span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.repo-choice-icon { color: var(--accent); }
+.modal-field input[aria-invalid="true"] {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--danger) 35%, transparent);
+}
+.modal-field code { color: var(--muted); }
+.modal-radio-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+.modal-radio-list legend {
+  margin-bottom: 2px;
+  color: var(--faint);
+  font-size: 12px;
+  font-weight: 700;
+}
+.modal-radio-list label {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--panel-3);
+  padding: 9px 10px;
+}
+.modal-radio-list label:has(input:checked) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.modal-radio-list input { margin-top: 2px; }
+.modal-radio-list input:focus-visible {
+  outline: none;
+  outline-offset: 2px;
+}
+.modal-radio-list span { display: grid; gap: 3px; }
+.modal-radio-list strong { color: var(--text); }
+.modal-radio-list small { color: var(--faint); line-height: 1.35; }
+.modal-header code { color: var(--muted); font-family: var(--mono); }
+.modal-actions { display: flex; justify-content: flex-end; gap: 8px; }
+.modal-actions.ui-action-group > button { min-height: var(--control-height-md); padding: 7px 12px; }

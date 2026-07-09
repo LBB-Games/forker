@@ -1,0 +1,189 @@
+.open-repo-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+}
+.open-repo-card {
+  display: grid;
+  gap: 12px;
+  width: min(480px, calc(100vw - 40px));
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: var(--panel);
+  box-shadow: 0 24px 80px var(--shadow-medium);
+}
+.open-repo-card.repository-open-card {
+  width: min(1120px, calc(100vw - 52px));
+  height: min(680px, calc(100dvh - 48px));
+  min-height: min(520px, calc(100dvh - 48px));
+  max-height: calc(100dvh - 48px);
+  gap: 12px;
+  padding: 18px;
+}
+.modal-card.repository-open-card {
+  grid-template-rows: auto minmax(0, 1fr);
+  min-height: min(520px, calc(100dvh - 48px));
+  overflow: hidden;
+}
+.repository-open-heading { display: flex; align-items: center; gap: 14px; }
+.repository-open-heading > div:last-child { display: grid; gap: 4px; }
+.repository-open-heading > button { margin-left: auto; white-space: nowrap; }
+.open-repo-card h1 { margin: 0; font-size: 24px; }
+.open-repo-card p { margin: 0 0 4px; color: var(--muted); line-height: 1.45; }
+.open-repo-card .git-installation-ok { color: var(--faint); font-family: var(--mono); font-size: 12px; }
+.open-repo-card .git-installation-error {
+  display: grid;
+  gap: 4px;
+  color: var(--danger);
+  font-size: 12px;
+  line-height: 1.35;
+}
+.open-repo-card .git-installation-error strong { color: var(--danger); }
+.open-repo-card .git-installation-error span { color: var(--danger); }
+.open-repo-card .git-installation-error ol {
+  margin: 2px 0 0 17px;
+  padding: 0;
+  color: var(--muted);
+}
+.open-repo-card input {
+  min-height: 38px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  color: var(--text);
+  padding: 8px 10px;
+}
+.open-repo-card button {
+  min-height: 38px;
+  border-radius: var(--radius-md);
+}
+.repo-glyph.large { width: 42px; height: 42px; font-size: 20px; }
+.open-error { color: var(--danger); font-size: 12px; }
+.clone-panel {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  box-shadow: 0 26px 90px var(--shadow-strong);
+}
+.clone-panel-heading { display: flex; align-items: start; justify-content: space-between; gap: 12px; }
+.clone-panel-heading h2 { margin: 0; color: var(--text); font-size: 14px; line-height: 1.25; }
+.clone-panel-heading p { margin: 3px 0 0; color: var(--faint); font-size: 12px; }
+.clone-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 1.3fr) minmax(160px, .7fr);
+  gap: 10px;
+}
+.clone-location-field { grid-column: 1 / -1; }
+.clone-branch-picker {
+  position: relative;
+  min-width: 0;
+}
+.clone-branch-trigger {
+  gap: 12px;
+  min-height: 48px;
+  padding: 8px 10px;
+}
+.clone-branch-trigger:hover,
+.clone-branch-trigger[aria-expanded='true'] { background: var(--panel-2); }
+.clone-branch-trigger-copy,
+.clone-branch-option-copy {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+.clone-branch-trigger-copy strong,
+.clone-branch-option-copy strong {
+  overflow: hidden;
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.clone-branch-trigger-copy small,
+.clone-branch-option-copy small {
+  overflow: hidden;
+  color: var(--faint);
+  font-size: 12px;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.clone-branch-chevron {
+  color: var(--faint);
+  font-size: 16px;
+  line-height: 1;
+}
+.clone-branch-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  left: 0;
+  max-height: 232px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 14px 32px var(--shadow-medium);
+  padding: 5px;
+}
+.clone-branch-menu button {
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 9px;
+  min-height: 44px;
+  border-radius: var(--radius-md);
+  padding: 7px 9px;
+}
+.clone-branch-menu button:hover { background: var(--panel-2); }
+.branch-ref-dot {
+  width: 8px;
+  height: 8px;
+  border: 1px solid color-mix(in srgb, var(--success) 70%, var(--line));
+  border-radius: var(--radius-pill);
+  background: var(--success);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--success) 14%, transparent);
+}
+.clone-local-branch-control {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+.clone-local-branch-control input[readonly] {
+  color: var(--muted);
+  background: var(--panel-2);
+}
+.clone-local-branch-control.ui-input-action > button {
+  --control-height: var(--control-height-md);
+  --control-border: var(--line);
+  --control-radius: var(--radius-md);
+  --control-color: var(--muted);
+  --control-hover-border: var(--accent);
+  padding: 7px 10px;
+  white-space: nowrap;
+}
+.clone-field-help {
+  margin-top: -1px;
+  color: var(--faint);
+  font-size: 12px;
+  line-height: 1.3;
+}
+.clone-panel-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+}
+.clone-destination {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

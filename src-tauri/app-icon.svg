@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Forker app icon</title>
+  <desc id="desc">A compact Git fork mark on a dark workbench tile.</desc>
+  <rect width="1024" height="1024" rx="224" fill="#151A21"/>
+  <rect x="56" y="56" width="912" height="912" rx="184" fill="none" stroke="#344150" stroke-width="32"/>
+
+  <path d="M308 740V286" fill="none" stroke="#8FD4FF" stroke-width="92" stroke-linecap="round"/>
+  <path d="M308 354H594C682 354 738 410 738 498V526" fill="none" stroke="#8FD4FF" stroke-width="92" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M308 546H568C624 546 662 584 662 640V738" fill="none" stroke="#8FD4FF" stroke-width="92" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <circle cx="308" cy="286" r="86" fill="#151A21" stroke="#7CE0A4" stroke-width="52"/>
+  <circle cx="738" cy="526" r="86" fill="#151A21" stroke="#FFD166" stroke-width="52"/>
+  <circle cx="662" cy="738" r="86" fill="#151A21" stroke="#8FD4FF" stroke-width="52"/>
+</svg>

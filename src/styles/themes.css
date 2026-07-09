@@ -1,0 +1,2 @@
+/* Theme entrypoint. Authored theme palettes live in src/themes/*.js; generated CSS stays in styles/themes/ to preserve import order. */
+@import './themes/generated.css';

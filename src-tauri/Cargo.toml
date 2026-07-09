@@ -1,0 +1,19 @@
+[package]
+name = "forker"
+version = "0.2.0"
+description = "A cross-platform Git client"
+authors = ["forker contributors"]
+edition = "2021"
+
+[lib]
+name = "forker_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+notify = "8"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tauri = { version = "2", features = ["image-png"] }

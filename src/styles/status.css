@@ -1,0 +1,43 @@
+.statusbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  padding: 0 10px;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--faint);
+  font-size: 12px;
+}
+.statusbar span {
+  flex: none;
+  min-width: 0;
+  white-space: nowrap;
+}
+.statusbar span:last-child {
+  flex: 0 1 min(520px, 44vw);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.statusbar strong { color: var(--muted); }
+.status-cancel-button {
+  --control-height: 22px;
+  --control-radius: var(--radius-xs);
+  --control-border: var(--danger);
+  --control-bg: var(--danger-soft);
+  --control-color: var(--danger);
+  flex: none;
+  padding: 0 8px;
+  font-size: 11px;
+}
+.status-spacer { flex: 1 1 auto; }
+
+.status-conflict {
+  border: 1px solid var(--warning);
+  border-radius: var(--radius-pill);
+  background: var(--warning-soft);
+  color: var(--warning);
+  padding: 1px 7px;
+  font-weight: 800;
+}

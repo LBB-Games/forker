@@ -1,0 +1,37 @@
+{
+  "name": "forker",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --strictPort",
+    "tauri": "tauri",
+    "tauri:dev": "tauri dev",
+    "tauri:dev-icon": "./scripts/install-dev-desktop-entry.sh",
+    "tauri:build": "tauri build",
+    "build": "node scripts/generate-theme-css.mjs && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "themes:generate": "node scripts/generate-theme-css.mjs",
+    "themes:check": "node scripts/generate-theme-css.mjs --check",
+    "themes:stable": "node scripts/check-theme-output-stable.mjs",
+    "themes:new": "node scripts/new-theme.mjs",
+    "smoke:remote-fixture": "node scripts/create-local-remote-fixture.mjs",
+    "check:svelte": "svelte-check",
+    "check:a11y-smoke": "node scripts/check-a11y-smoke.mjs",
+    "check:rust:fmt": "cargo fmt --manifest-path src-tauri/Cargo.toml -- --check",
+    "check:rust:clippy": "cargo clippy --manifest-path src-tauri/Cargo.toml -- -D warnings",
+    "check:rust": "cargo check --manifest-path src-tauri/Cargo.toml",
+    "check:tauri-commands": "node scripts/check-tauri-commands.mjs",
+    "check:all": "./scripts/check-all.sh"
+  },
+  "dependencies": {
+    "@sveltejs/vite-plugin-svelte": "latest",
+    "@tauri-apps/api": "^2.11.1",
+    "svelte": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.11.3",
+    "svelte-check": "^4.7.1"
+  }
+}

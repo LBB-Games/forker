@@ -1,0 +1,101 @@
+.command-palette-backdrop {
+  align-items: start;
+  padding-top: 9vh;
+}
+.command-palette {
+  display: grid;
+  gap: 10px;
+  width: min(660px, calc(100vw - 48px));
+  min-width: 0;
+  max-height: min(620px, calc(100vh - 80px));
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  padding: 12px;
+}
+.command-palette-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 2px 2px 4px;
+}
+.command-palette-header h2,
+.command-palette-header p { margin: 0; }
+.command-palette-header h2 { font-size: 15px; letter-spacing: -.01em; }
+.command-palette-header p { margin-top: 3px; color: var(--faint); font-size: 12px; }
+.command-palette kbd,
+.command-list kbd {
+  flex: 0 0 auto;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-xs);
+  background: var(--panel-3);
+  color: var(--faint);
+  padding: 2px 5px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+}
+.command-search {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  color: var(--faint);
+  padding: 0 10px;
+}
+.command-search input { outline: none; }
+.command-list {
+  display: grid;
+  gap: 3px;
+  max-height: min(460px, calc(100vh - 220px));
+  overflow: auto;
+  padding-top: 3px;
+}
+.command-list button {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--muted);
+  padding: 7px 9px;
+  text-align: left;
+}
+.command-list button:hover:not(:disabled) { border-color: color-mix(in srgb, var(--accent) 24%, var(--line)); }
+.command-list button:focus-visible {
+  outline: none;
+  outline-offset: -2px;
+}
+.command-list button:disabled { opacity: .48; }
+.command-list button.danger:not(:disabled) strong { color: var(--danger); }
+.command-list button.danger.active:not(:disabled),
+.command-list button.danger:hover:not(:disabled) {
+  border-color: var(--danger);
+  background: var(--danger-soft);
+}
+.command-main {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+.command-main strong,
+.command-main small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.command-main strong { color: inherit; font-size: 13px; }
+.command-main small { color: var(--faint); font-size: 12px; }
+.command-empty {
+  padding: 20px 10px;
+  color: var(--faint);
+  font-size: 13px;
+}

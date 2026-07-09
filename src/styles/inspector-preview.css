@@ -1,0 +1,82 @@
+.inspector-body {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.diff-inspector-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.commit-inspector-body,
+.history-inspector-body,
+.stash-inspector-body {
+  display: grid;
+  grid-template-columns: minmax(260px, 34%) minmax(0, 1fr);
+}
+
+.inspector-list-panel,
+.inspector-preview-panel,
+.inspector-preview-card {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border-right: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.inspector-preview-panel {
+  display: flex;
+  flex-direction: column;
+  border-right: 0;
+  background: var(--bg);
+}
+
+.inspector-preview-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  overflow: auto;
+  border-right: 0;
+  background: var(--bg);
+  padding: 16px;
+}
+
+.inspector-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 42px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel-2);
+  padding: 8px 10px;
+}
+
+.inspector-panel-heading.stackable {
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.inspector-panel-heading strong {
+  display: block;
+  overflow: hidden;
+  color: var(--text);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.inspector-panel-heading span {
+  color: var(--faint);
+  font-size: 11px;
+}
+
+.inspector-filter {
+  width: 100%;
+  min-height: 29px;
+  background: var(--bg);
+}
+

@@ -1,0 +1,100 @@
+.inspector-status {
+  display: grid;
+  gap: 6px;
+  align-content: center;
+  min-height: 120px;
+  margin: 12px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-md);
+  background: var(--panel);
+  color: var(--muted);
+  padding: 16px;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.diff-inspector-body > .inspector-status,
+.inspector-preview-panel > .inspector-status {
+  flex: 1;
+}
+
+.inspector-status strong {
+  color: var(--text);
+  font-size: 13px;
+}
+
+.inspector-status.error {
+  border-color: var(--danger);
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.inspector-status.stale { border-color: var(--warning); background: var(--warning-soft); color: var(--warning); }
+.inspector-status.loading strong::after { content: '…'; }
+
+.stash-preview-layout {
+  display: grid;
+  grid-template-rows: minmax(96px, 26%) minmax(0, 1fr);
+  min-width: 0;
+  min-height: 0;
+  flex: 1;
+}
+
+.stash-file-list {
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.stash-history-list button {
+  min-height: 56px;
+}
+
+.diff-table.read-only-diff {
+  flex: 1;
+  min-height: 0;
+  padding-block: 0;
+}
+
+.diff-table.read-only-diff:focus-visible {
+  outline: none;
+  outline-offset: -2px;
+  box-shadow: none;
+}
+
+.diff-table.read-only-diff .diff-row {
+  grid-template-columns: 52px 52px minmax(max-content, 1fr);
+}
+
+.diff-table.read-only-diff.wrap-lines .diff-row {
+  grid-template-columns: 52px 52px minmax(0, 1fr);
+}
+
+.diff-table.read-only-diff.split-view .diff-row {
+  grid-template-columns: 52px minmax(0, 1fr) 52px minmax(0, 1fr);
+}
+
+.diff-table.read-only-diff.split-view.wrap-lines .diff-row {
+  grid-template-columns: 52px minmax(0, 1fr) 52px minmax(0, 1fr);
+}
+
+.diff-table.read-only-diff .diff-row code { padding-right: 18px; }
+
+@media (max-width: 900px) {
+  .secondary-inspector-backdrop { padding: 12px; }
+  .secondary-inspector-card {
+    width: calc(100vw - 24px);
+    height: calc(100dvh - 24px);
+  }
+  .inspector-header { flex-direction: column; padding-right: 52px; }
+  .inspector-header-actions { justify-content: flex-start; }
+  .commit-inspector-body,
+  .history-inspector-body,
+  .stash-inspector-body {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(180px, 40%) minmax(0, 1fr);
+  }
+  .inspector-list-panel {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+}
